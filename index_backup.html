@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <style>
+    {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding-left: 15px;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 4fr 3fr;
+      grid-gap: 30px; /* Adjust as needed */
+    }
+
+    .right-column-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      margin-right: 30px;
+    }
+
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+    }
+
+    .right {
+      margin-top: 20px; /* Adjust as needed */
+    }
+    #observablehq-popMap-442c7238 {
+      display: flex;
+      width: 100%;
+      order: 2; /* Ensure the chart appears below the text */
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Center the content in the top right column */
+    #observablehq-viewof-selectedYear-442c7238 {
+      display: flex;
+      justify-content: left;
+      align-items: left;
+      margin-top: 60px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    /* Optionally, you can add styles to the text below the columns */
+    .row p {
+      margin-top: 20px; /* Adjust as needed */
+    }
+  </style>
+</head>
+<body>
+
+<h1>Global Population</h1>
+
+
+<div class="row">
+  <div class="left-column">
+    <div class="left">
+      <p>The population data was taken from <a href="https://stats.oecd.org/Index.aspx?DataSetCode=EDU_DEM#">Organization for Economic Co-operation and Development</a>. The choropleth template was taken from an Observable Notebook at <a href="https://observablehq.com/@d3/choropleth">D3 Choropleth</a> The graphics were made with <a href="https://observablehq.com/plot/">Observable Plot</a>. The stacked horizontal bar chart was largely taken from here, before modifications <a href="https://observablehq.com/@douglyuckling/diverging-stacked-bar-chart">D3 on Observable Plot</a>. The Observable template/files for the World Map were taken from <a href="https://observablehq.com/@observablehq/d3-world-map">d3 World Map</a>. I used the following website to get the colors: <a href="https://color.adobe.com/create/color-wheel">Adobe Color</a>. The dataset was filtered with d3/javascript with help from <a href="https://chat.openai.com/share/2a112e1c-3413-4719-95a5-18b96686ce42">Chat-GPT </a>. </p>
+      <p>I realized while processing the data that it was much more limited than I initially thought, with only around 40 countries included. You can choose the Year to view with the drop down menu, and you can pick which Country to see a distribution from by clicking on the map. I also included an option to view the bar graph with one set scale across all countries and years.</strong></p>
+
+      <p><strong>Hypothesis: Developed countries have faced an increasing problem with Aging populations over the past 20 years. </p>
+    </div>
+    <div class="left" id="observablehq-popMap-442c7238">
+      <!-- Content for the left column -->
+    </div>
+  </div>
+  <div class="right-column-container">
+    <div class="right" id="observablehq-viewof-selectedYear-442c7238"></div> 
+    <div class="right" id="observablehq-viewof-axisScale-442c7238">
+      <!-- Content for the first right column -->
+    </div>
+    <div class="right" id="observablehq-popDistBars-442c7238">
+      <!-- Content for the second right column -->
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from "https://api.observablehq.com/d/a04667d455aacf14.js?v=4";
+new Runtime().module(define, name => {
+  if (name === "popMap") return new Inspector(document.querySelector("#observablehq-popMap-442c7238"));
+  if (name === "viewof selectedYear") return new Inspector(document.querySelector("#observablehq-viewof-selectedYear-442c7238"));
+  if (name === "viewof axisScale") return new Inspector(document.querySelector("#observablehq-viewof-axisScale-442c7238"));
+  if (name === "popDistBars") return new Inspector(document.querySelector("#observablehq-popDistBars-442c7238"));
+  return ["currentYear","chart8","dataCountryYear","dataByYear","dataCountryYearReduced","statusOfScaleToggle"].includes(name);
+});
+</script>
+
+</body>
+</html>
