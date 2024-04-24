@@ -17,8 +17,13 @@
     }
 
     /* Adjust the width of the columns */
-    td {
-      width: 50%;
+    td.left-column {
+      width: 70%; /* Adjust this value as needed */
+      vertical-align: top; /* Align content at the top of cells */
+    }
+
+    td.right-column {
+      width: 30%; /* Adjust this value as needed */
       vertical-align: top; /* Align content at the top of cells */
     }
 
@@ -39,7 +44,7 @@
 
 <table>
   <tr>
-    <td colspan="2">
+    <td class="left-column" colspan="2">
       <p>The population data was taken from <a href="https://stats.oecd.org/Index.aspx?DataSetCode=EDU_DEM#">Organization for Economic Co-operation and Development</a>. The choropleth template was taken from an Observable Notebook at <a href="https://observablehq.com/@d3/choropleth">D3 Choropleth</a> The graphics were made with <a href="https://observablehq.com/plot/">Observable Plot</a>. The stacked horizontal bar chart was largely taken from here, before modifications <a href="https://observablehq.com/@douglyuckling/diverging-stacked-bar-chart">D3 on Observable Plot</a>. The Observable template/files for the World Map were taken from <a href="https://observablehq.com/@observablehq/d3-world-map">d3 World Map</a>. I used the following website to get the colors: <a href="https://color.adobe.com/create/color-wheel">Adobe Color</a>. The dataset was filtered with d3/javascript with help from <a href="https://chat.openai.com/share/2a112e1c-3413-4719-95a5-18b96686ce42">Chat-GPT </a>.
       </p>
       <p>I realized while processing the data that it was much more limited than I initially thought, with only around 40 countries included. You can choose the Year to view with the drop down menu, and you can pick which Country to see a distribution from by clicking on the map. I also included an option to view the bar graph with one set scale across all countries and years.</strong></p>
@@ -47,18 +52,18 @@
     </td>
   </tr>
   <tr>
-    <td id="observablehq-viewof-selectedYear-442c7238">
+    <td class="left-column" id="observablehq-viewof-selectedYear-442c7238">
       <!-- Content for the left cell in the second row -->
     </td>
-    <td id="observablehq-viewof-axisScale-442c7238">
+    <td class="right-column" id="observablehq-viewof-axisScale-442c7238">
       <!-- Content for the right cell in the second row -->
     </td>
   </tr>
   <tr>
-    <td id="observablehq-popMap-442c7238">
+    <td class="left-column" id="observablehq-popMap-442c7238">
       <!-- Content for the right cell in the first row -->
     </td>
-    <td id="observablehq-popDistBars-442c7238" colspan="2">
+    <td class="right-column" id="observablehq-popDistBars-442c7238" colspan="2">
       <!-- Content for the cells in the third row, spanning both columns -->
     </td>
   </tr>
